@@ -1,0 +1,41 @@
+plugins {
+  id "java"
+  id "application"
+}
+
+group "io.honeymon.boot"
+version "2.4.0.RELEASE"
+
+repositories {
+  jcenter()
+}
+
+dependencies {
+  compile "org.asciidoctor:asciidoctorj:2.2.0"
+  compile "org.asciidoctor:asciidoctorj-epub3:1.5.0-alpha.16"
+  compile "org.asciidoctor:asciidoctorj-pdf:1.5.3"
+
+  compile "commons-io:commons-io:2.7"
+}
+
+sourceCompatibility = "1.8"
+[compileJava, compileTestJava]*.options*.encoding = "UTF-8"
+
+sourceSets {
+  main {
+    java {
+      srcDirs = ["src/main/java"]
+    }
+    resources {
+      srcDirs = ["src/docs"]
+    }
+  }
+}
+
+mainClassName = "io.honeymon.boot.book.BookGenerator"
+
+task convertToMarkdown(type: Exec) {
+  commandLine "./convert-docbook-to-markdown.sh"
+}
+
+run.finalizedBy convertToMarkdown

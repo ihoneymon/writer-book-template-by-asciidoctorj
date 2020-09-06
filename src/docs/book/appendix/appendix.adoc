@@ -1,0 +1,67 @@
+[[appendix]]
+== 부록
+아래의 링크들은 {spring-boot} 개발하면서 자주볼 수 있는 링크들을 모아두었다. 이 링크 외에도 자신에게 필요한 것들을 찾아볼 수 있는 자신만의 즐겨찾기 목록을 가지고 공유한다면 많은 이들에게 도움이 될 것이다.
+
+* Java 8:: link:https://docs.oracle.com/javase/8/docs/[]
+* Java 9:: link:https://docs.oracle.com/javase/9/index.html[]
+
+* {spring} 참고문서
+** 4.X:: link:https://goo.gl/oyttYh[]
+** 5.X:: link:https://goo.gl/gohykG[]
+** 블로그: link:https://spring.io/blog[]
++
+[NOTE]
+====
+{spring}과 관련된 기술, 출시, 뉴스 및 이벤트 등 다양한 글이 올라온다.
+====
+
+** ``@Profile``
+*** 링크:  link:https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-definition-profiles-java[{spring} 참고문서#@Profilehttps://goo.gl/PJLB12]
+*** 링크:  link:https://docs.spring.io/spring-framework/docs/5.0.2.RELEASE/javadoc-api/org/springframework/context/annotation/Profile.html[`@Profile` Javadoc(https://goo.gl/Fhmzh2)]
+
+** {spring} Web MVC
+*** 링크:  link:https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc[{spring} 참고문서#Spring Web MVC(https://goo.gl/iDNwgY)]
+
+** {spring} WebFlux
+*** 영상: link:https://youtu.be/2E_1yb8iLKk[스프링캠프 2017:: SpringWebFlux - 이일민(https://youtu.be/2E_1yb8iLKk)]
+*** 링크: link:https://bclozel.github.io/webflux-workshop/[Spring WebFlux Workshop(https://goo.gl/Lq168g)]
+
+** {spring-security}
+*** 링크: link:https://projects.spring.io/spring-security/[Spring Security project(https://goo.gl/HxLfQ8)]
+*** 링크: link:https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/[Spring Security 참고문서(https://goo.gl/h12ij8)]
+
+* {spring-boot} 참고문서
+** 1.5.8:: link:https://goo.gl/KwWjsE[]
+** 2.0.0:: link:https://goo.gl/rm1njc[]
+** {spring-boot} {app} 공통 속성(properties): link:https://goo.gl/CytJjh[]
++
+[NOTE]
+====
+이 공통속성은 ``spring-boot-autoconfigure`` 프로젝트에 있는 ``properties`` 를 목록으로 정리한 것이며 ``application.yml`` 혹은 ``application.properties`` 에서 필요한 속성값을 덮어쓰기(Override)하는 것이 가능하다.
+====
+
++
+[TIP]
+====
+{spring-boot}에서 제공하는 {auto-config} 기본값을 확인할 때 관련한 Properties 클래스를 살펴보면 된다.
+====
+
+* 백기선님의 link:https://github.com/keesun/study/blob/master/spring-boot-reference-coding.md["{spring-boot} 2.0 레퍼런스 코딩"(https://goo.gl/txrmPd)]
++
+[NOTE]
+====
+기선님의 부지런함에 혀를 내두를 지경이다. 좋은 영상자료다. 바쁘지 않을 때마다 꾸준하게 읽어보자.
+====
+
+* 스택오버플로우 ``spring-boot``:: link:https://stackoverflow.com/questions/tagged/spring-boot[]
+
+* 한국스프링유저그룹(KSUG) 페이스북 그룹:: link:https://www.facebook.com/groups/springkorea/[]
+
+* {gradle} 참고문서:: link:https://goo.gl/WLEFEH[]
+* {maven} 참고문서:: link:http://maven.apache.org/guides/[]
+
+* 허니몬
+** 블로그:: {spring-boot} 관련 카테고리 link:https://goo.gl/tZjjYC[]
+** Boot Spring Boot 관련 영상::  link:https://goo.gl/qB8hHa[]
+** 개발관련 링크모음 link:https://plus.google.com/collection/4d04Y[]
+** 깃헙 spring-boot-orm-learn: link:https://github.com/ihoneymon/spring-boot-orm-learn[]

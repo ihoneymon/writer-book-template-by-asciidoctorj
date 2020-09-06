@@ -1,0 +1,7 @@
+//====
+//저자소개
+include::author.adoc[]
+
+//책소개
+include::book-intro.adoc[]
+//====

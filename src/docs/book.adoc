@@ -1,0 +1,41 @@
+= 아스키독으로 책쓰기
+honeymon, <ihoneymon@gmail.com>
+v2.4.0, 2020-10-01
+// ::settings::
+:author:  Honeymon(Jiheon Kim)
+:email: ihoneymon@gmail.com
+:description: 아스키독으로 책을 쓰자. 2쇄를 찍자.
+:keywords: honeymon, asciidoctor, asciidoctorj, book
+:doctype: book
+:doctitle: 아스키독으로 책쓰기
+:page-layout: docs
+:toc: left
+:toclevels: 3
+:source-highlighter: coderay
+:encoding: utf-8
+:front-cover-image: image:images/cover.jpg[]
+:page-layout: about
+:idprefix:
+:idseparator: -
+:compat-mode!:
+
+// ::placeholders::
+:next-read: 다음 장에서는
+:path-images: ../../images
+//::reference end
+
+////
+===  작성주의사항
+* 코드에 대한 정의는 다음과 같다.
+* ``[source,java,subs="verbatim,attributes"]``
+* ``[source,console,]``
+* ``[source,html,subs="verbatim,attributes"]``
+////
+
+include::book/index.adoc[]
+
+//====
+
+////
+TODO list
+////
