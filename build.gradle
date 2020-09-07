@@ -37,5 +37,9 @@ mainClassName = "io.honeymon.boot.book.BookGenerator"
 task convertToMarkdown(type: Exec) {
   commandLine "./convert-docbook-to-markdown.sh"
 }
-
 run.finalizedBy convertToMarkdown
+
+task convertToMSDocs(type: Exec) {
+  commandLine "./convert-docbook-to-docs.sh"
+}
+run.finalizedBy convertToMSDocs
