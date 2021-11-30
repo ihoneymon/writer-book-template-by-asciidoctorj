@@ -2,16 +2,17 @@ package io.honeymon.book;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
-import org.asciidoctor.*;
+import org.asciidoctor.Asciidoctor;
+import org.asciidoctor.Attributes;
+import org.asciidoctor.Options;
+import org.asciidoctor.SafeMode;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.rmi.server.ExportException;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Objects;
 
 /**
  * @see <a href="https://github.com/asciidoctor/asciidoctorj">AsciidoctorJ: AsciidoctorJ: Java bindings for Asciidoctor</a>
@@ -28,64 +29,58 @@ public class BookGenerator {
 
     public static void main(String[] args) {
         try {
-//            cleanPublicationDir();
             makePublicationDir();
             copyImageFiles(new File(DIR_ROOT));
 
             File bookFile = Paths.get(DIR_ROOT, FILE_BOOK_ADOC).toFile();
             Asciidoctor asciidoctor = Asciidoctor.Factory.create();
 
-            /**
-             * Convert to HTML
-             */
-            Options htmlOptions = OptionsBuilder.options()
+            /* Convert to HTML */
+            Options htmlOptions = Options.builder()
                     .backend("html5")
                     .safe(SafeMode.SAFE)
                     .toDir(new File(DIR_PUBLICATION))
-                    .get();
+                    .build();
 
             System.out.println("Rendering HTML.");
             asciidoctor.convertFile(bookFile, htmlOptions);
 
-            /**
-             * Convert to PDF
-             */
-            Map<String, Object> pdfAttrs = new HashMap<>();
-            pdfAttrs.put("pdf-theme", "src/for-pdf/themes/default-pdf-theme.yml");
-            pdfAttrs.put("pdf-fontsdir", "src/for-pdf/fonts");
-            Options pdfOptions = OptionsBuilder.options()
+            /*  Convert to PDF */
+            Attributes attributes = Attributes.builder()
+                    .attribute("pdf-theme", "src/for-pdf/themes/default-pdf-theme.yml")
+                    .attribute("pdf-fontsdir", "src/for-pdf/fonts")
+                    .build();
+            Options pdfOptions = Options.builder()
                     .backend("pdf")
                     .safe(SafeMode.SAFE)
-                    .attributes(pdfAttrs)
+                    .attributes(attributes)
                     .toDir(new File(DIR_PUBLICATION))
-                    .get();
+                    .build();
 
             System.out.println("Rendering PDF.");
             asciidoctor.convertFile(bookFile, pdfOptions);
 
-            /**
-             * Convert to docbook
-             */
-            Options docbookOption = OptionsBuilder.options()
+            /* Convert to docbook */
+            Options docbookOption = Options.builder()
                     .backend("docbook5")
                     .safe(SafeMode.SAFE)
                     .toDir(new File(DIR_PUBLICATION))
-                    .get();
+                    .build();
 
             System.out.println("Rendering DOCBOK.");
             asciidoctor.convertFile(bookFile, docbookOption);
 
-            /**
+            /*
              * Convert to epub3
              * @see <a href="https://github.com/asciidoctor/asciidoctorj#converting-to-epub3">Converting to EPUB3</a>
              */
             System.out.println("Rendering EPUB.");
-            Options epub3Option = OptionsBuilder.options()
+            Options epub3Option = Options.builder()
                     .backend("epub3")
                     .safe(SafeMode.SAFE)
                     .inPlace(true)
                     .toDir(new File(DIR_PUBLICATION)) // epub 변환시 대상 디렉터리 초기화함
-                    .get();
+                    .build();
 
             asciidoctor.convertFile(bookFile, epub3Option);
 
@@ -96,12 +91,12 @@ public class BookGenerator {
     }
 
     private static void copyImageFiles(File file) throws IOException {
-        if(file.getAbsolutePath().contains(DIR_DOCS_IMAGES)) {
+        if (file.getAbsolutePath().contains(DIR_DOCS_IMAGES)) {
             return; //exclude copied image files
         }
 
-        if(file.isDirectory()){
-            for(File el: file.listFiles()) {
+        if (file.isDirectory()) {
+            for (File el : Objects.requireNonNull(file.listFiles())) {
                 copyImageFiles(el);
             }
         } else {

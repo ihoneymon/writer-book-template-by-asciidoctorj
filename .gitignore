@@ -5,6 +5,8 @@ vendor
 .bundle
 publication
 src/docs/images
+.DS_Store
+.vscode 
 
 # Ignore Gradle project-specific cache directory
 .gradle

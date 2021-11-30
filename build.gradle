@@ -6,7 +6,7 @@ plugins {
 group "io.honeymon"
 
 repositories {
-  jcenter()
+  mavenCentral()
 }
 
 dependencies {
@@ -14,11 +14,10 @@ dependencies {
   implementation "org.asciidoctor:asciidoctorj-epub3:1.5.1"
   implementation "org.asciidoctor:asciidoctorj-pdf:1.6.0"
 
-  implementation "commons-io:commons-io:2.7"
+  implementation "commons-io:commons-io:2.11.0"
 }
 
-sourceCompatibility = "1.8"
-[compileJava, compileTestJava]*.options*.encoding = "UTF-8"
+sourceCompatibility = "11"
 
 sourceSets {
   main {
